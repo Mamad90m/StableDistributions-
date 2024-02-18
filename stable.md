@@ -13,7 +13,7 @@ library(knitr)
 ## Probability density function for symmetric case
 
 ``` r
-set.seed(123)
+set.seed(111)
 x <- seq(-5, 5, by = 0.01)
 plot(x, dstable(x, 0.6, 0, 1, 0), type = "l", lwd = 2, col = "dodgerblue", 
 xlab = "", ylab = "", main = "Density function for symmeretric stable distributions", 
@@ -188,7 +188,7 @@ control = list(fnscale = -1))))[1]
 c(mean(alpha_hat_1), sd(alpha_hat_1))
 ```
 
-    ## [1] 0.90486914 0.06121775
+    ## [1] 0.90499414 0.06657779
 
 ``` r
 plot(cumsum(alpha_hat_1) / (1:length(alpha_hat_1)), type = "l", 
@@ -228,11 +228,11 @@ control = list(fnscale = -1))))[1]
 c(mean(alpha_hat_2), sd(alpha_hat_2))
 ```
 
-    ## [1] 1.5139453 0.1011094
+    ## [1] 1.52303516 0.09796568
 
 ``` r
 plot(cumsum(alpha_hat_2) / (1:length(alpha_hat_2)), type = "l", 
-col = "dodgerblue", lwd = 2, xlab = "", ylab = "", main = bquote("Convergenc of ML Estimator for"~alpha == 1.5), 
+col = "dodgerblue", ylim = c(1.4, 1.6), lwd = 2, xlab = "", ylab = "", main = bquote("Convergenc of ML Estimator for"~alpha == 1.5), 
 cex.main = 0.8)
 abline(h = alpha2, col = "darkorange", lwd = 2, lty = 2)
 ```
