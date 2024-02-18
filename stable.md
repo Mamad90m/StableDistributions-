@@ -166,8 +166,8 @@ cex.main = 0.7)
 ## Maximum likelihood estimation for alpha (alpha = 0.9)
 
 ``` r
-n <- 25
-r <- 2
+n <- 250
+r <- 100
 alpha1 <- 0.9
 beta <- 0
 gamma <- 1
@@ -178,24 +178,17 @@ s[i, ] <- rstable(n, alpha1, beta, gamma, mu)
 alpha_hat_1 <- NULL
 
 
-start_time <- Sys.time()
 
 for(i in 1:r)
 alpha_hat_1[i] <- as.numeric(unlist(optim(0.5, function(par){
 ifelse(par<0.1 | par>2, -10000, sum(log(dstable(s[i, ], par, 0, 1, 0))))},
 control = list(fnscale = -1))))[1]
 
-end_time <- Sys.time()
-end_time - start_time 
-```
 
-    ## Time difference of 2.044406 secs
-
-``` r
 c(mean(alpha_hat_1), sd(alpha_hat_1))
 ```
 
-    ## [1] 0.9609375 0.3717835
+    ## [1] 0.90486914 0.06121775
 
 ``` r
 plot(cumsum(alpha_hat_1) / (1:length(alpha_hat_1)), type = "l", 
@@ -225,27 +218,19 @@ s[i, ] <- rstable(n, alpha2, beta, gamma, mu)
 alpha_hat_2 <- NULL
 
 
-start_time <- Sys.time()
 
 for(i in 1:r)
 alpha_hat_2[i] <- as.numeric(unlist(optim(1, function(par){
 ifelse(par<0.1 | par>2, -10000, sum(log(dstable(s[i, ], par, 0, 1, 0))))},
 control = list(fnscale = -1))))[1]
 
-end_time <- Sys.time()
-end_time - start_time 
-```
 
-    ## Time difference of 3.648105 secs
-
-``` r
 c(mean(alpha_hat_2), sd(alpha_hat_2))
 ```
 
-    ## [1] 1.72539063 0.04695631
+    ## [1] 1.5139453 0.1011094
 
 ``` r
-## converganc
 plot(cumsum(alpha_hat_2) / (1:length(alpha_hat_2)), type = "l", 
 col = "dodgerblue", lwd = 2, xlab = "", ylab = "", main = bquote("Convergenc of ML Estimator for"~alpha == 1.5), 
 cex.main = 0.8)
@@ -255,7 +240,6 @@ abline(h = alpha2, col = "darkorange", lwd = 2, lty = 2)
 ![](stable_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
-## histogram
 hist(alpha_hat_2, col = "skyblue", border = "red", xlab = "", ylab = "", 
 main = bquote("Histogram of ML Estimator for"~alpha == 1.5), 
 cex.main = 0.8)
