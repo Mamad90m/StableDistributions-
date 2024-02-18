@@ -189,7 +189,7 @@ end_time <- Sys.time()
 end_time - start_time 
 ```
 
-    ## Time difference of 2.061117 secs
+    ## Time difference of 2.044406 secs
 
 ``` r
 c(mean(alpha_hat_1), sd(alpha_hat_1))
@@ -236,7 +236,7 @@ end_time <- Sys.time()
 end_time - start_time 
 ```
 
-    ## Time difference of 4.076233 secs
+    ## Time difference of 3.648105 secs
 
 ``` r
 c(mean(alpha_hat_2), sd(alpha_hat_2))
