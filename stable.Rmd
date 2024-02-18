@@ -17,6 +17,7 @@ library(knitr)
 
 ## Probability density function for symmetric case
 ```{r}
+set.seed(123)
 x <- seq(-5, 5, by = 0.01)
 plot(x, dstable(x, 0.6, 0, 1, 0), type = "l", lwd = 2, col = "dodgerblue", 
 xlab = "", ylab = "", main = "Density function for symmeretric stable distributions", 

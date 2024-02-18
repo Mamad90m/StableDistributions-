@@ -13,6 +13,7 @@ library(knitr)
 ## Probability density function for symmetric case
 
 ``` r
+set.seed(123)
 x <- seq(-5, 5, by = 0.01)
 plot(x, dstable(x, 0.6, 0, 1, 0), type = "l", lwd = 2, col = "dodgerblue", 
 xlab = "", ylab = "", main = "Density function for symmeretric stable distributions", 
@@ -188,13 +189,13 @@ end_time <- Sys.time()
 end_time - start_time 
 ```
 
-    ## Time difference of 2.128122 secs
+    ## Time difference of 2.061117 secs
 
 ``` r
 c(mean(alpha_hat_1), sd(alpha_hat_1))
 ```
 
-    ## [1] 1.2683594 0.4999466
+    ## [1] 0.9609375 0.3717835
 
 ``` r
 plot(cumsum(alpha_hat_1) / (1:length(alpha_hat_1)), type = "l", 
@@ -235,13 +236,13 @@ end_time <- Sys.time()
 end_time - start_time 
 ```
 
-    ## Time difference of 5.028288 secs
+    ## Time difference of 4.076233 secs
 
 ``` r
 c(mean(alpha_hat_2), sd(alpha_hat_2))
 ```
 
-    ## [1] 1.6902321 0.4380715
+    ## [1] 1.72539063 0.04695631
 
 ``` r
 ## converganc
